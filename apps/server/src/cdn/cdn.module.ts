@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
+import { CdnService } from './cdn.service';
 
 @Module({
-  providers: [],
-  exports: [],
+  providers: [CdnService],
+  exports: [CdnService],
 })
 export class CdnModule {}
