@@ -77,7 +77,7 @@
     --border: 40 15% 16%;
 
     /* Added colors */
-    --primary-title: var(--web-orange-500);
+    /*--primary-title: var(--web-orange-500);*/
 
     /* Default colors */
     --foreground: 210 40% 98%;

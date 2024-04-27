@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import Link from '@/components/ui/link';
 import ThemeToggleMobile from '@/components/ui/themeToogleMobile';
 import { cn } from '@/lib/utils';
+import { NAV_LINKS } from '@/data/navLinks';
 
 export default function NavBarMobile() {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,13 +30,6 @@ export default function NavBarMobile() {
       window.removeEventListener('keydown', handleEsc);
     };
   }, [isOpen]);
-
-  const NAVLINKS = [
-    { href: '/', text: 'Inicio' },
-    { href: '/about', text: 'Acerca de' },
-    { href: '/blog', text: 'Blog' },
-    { href: '/contact', text: 'Contacto' },
-  ];
 
   return (
     <>
@@ -62,7 +56,7 @@ export default function NavBarMobile() {
       >
         <div className="w-full max-w-40 flex flex-col gap-4">
           {
-          NAVLINKS.map(({ href, text }) => (
+          NAV_LINKS.map(({ href, text }) => (
             <button type="button" onClick={handleClick} key={text}>
               <Link
                 className="text-xl w-full"

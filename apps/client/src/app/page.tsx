@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <main className="flex flex-col gap-12 items-center justify-start my-20 flex-1">
+    <div className="flex flex-col gap-12 items-center justify-start my-20 flex-1">
       <div className="flex flex-col gap-4 items-center justify-center">
         <h1 className="uppercase text-primary-title text-7xl font-bold w-full max-w-2xl text-center">
           Comprueba tu certificado
@@ -21,6 +21,6 @@ export default function Home() {
           <CornerDownRight className="text-primary-foreground" />
         </Button> */}
       </div>
-    </main>
+    </div>
   );
 }
