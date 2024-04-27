@@ -1,33 +1,245 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+ 
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    /* Theme colors */
+    --web-orange-500-dark: #f59b01; /* DEFAULT FFF3E0 */
+    --web-orange-600: #e27a00;
+    --web-orange-700: #bb5402;
+    --web-orange-800: #984108;
+    --web-orange-900: #7c350b;
+    --web-orange-950: #481a00;
+
+    --web-gray-500: #75787b; /* DEFAULT */
+
+    /* Edited colors */
+    --background: 0 0% 100%;
+    
+    --primary: 36 85% 13%;
+    --primary-foreground: 210 40% 98%;
+
+    --accent: 35 100% 90%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    /* Added colors */
+    --primary-title: var(--web-orange-500-dark);
+    --primary-title-hover: #fcac22;
+
+    /* Default colors */
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+ 
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+ 
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+ 
+    --radius: 0.5rem;
+    --section: rgba(35, 39, 47, 0.22);
+
+    --entry-animation: -20px;
+    --cover-animation: 20px;
+  }
+ 
+  .dark {
+    /* Edited colors */
+    /* --background: 40 15% 10%; */
+    /* --background: 223 14% 10%; */
+    --background: 220 15% 16%;
+
+    --primary: 37 17% 89%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    /* --accent: 40 33% 18%; */
+    --accent: 220 17% 21%;
+    /* 40 15% 16% */
+    --accent-foreground: 210 40% 98%;
+
+    /* --popover: 30 8% 9%; */
+    --popover: 220 15% 14%;
+    --popover-foreground: 210 40% 98%;
+ 
+    --border: 40 15% 16%;
+
+    /* Added colors */
+    --primary-title: var(--web-orange-500);
+
+    /* Default colors */
+    --foreground: 210 40% 98%;
+ 
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+ 
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+ 
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+ 
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+
+    --section: rgba(122, 122, 122, 0.1);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@media (min-width: 1400px) {
+  :root {
+    --entry-animation: -80px;
+    --cover-animation: 80px;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* scroll bar styles */
+
+/* ::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 5px;
+} */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--background); /* Cambia el color de fondo de la barra de desplazamiento */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--web-gray-500); /* Cambia el color del thumb */
+  border-radius: 5px;
+}
+
+/* About animation */
+@keyframes aboutSliderDesktop {
+  0% {
+    transform: translateX(0);
   }
+  100% {
+    transform: translateX(calc(-40rem * 4));
+  }
+}
+
+@keyframes aboutSliderMobile {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-20rem * 4));
+  }
+}
+
+#sliderAbout-track {
+  display: flex;
+  animation: aboutSliderDesktop 30s linear infinite;
+  width: calc(40rem * 8);
+}
+
+@media (max-width: 768px) {
+  #sliderAbout-track {
+    animation: aboutSliderMobile 30s linear infinite;
+    width: calc(20rem * 8);
+  }
+}
+
+
+:target, section[id], div[id]  {
+  scroll-margin-top: 4.5rem;
+}
+
+@keyframes entry-animation {
+  0% {
+    opacity: 0;
+    translate: var(--entry-animation) 0;
+  }
+  100% {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+@keyframes cover-animation {
+  0% {
+    opacity: 0;
+    translate: var(--cover-animation) 0;
+  }
+  100% {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+#animation-text-r h1,
+#animation-text-r p {
+  animation: cover-animation linear both;
+  animation-timeline: view();
+}
+#animation-text-r h1 {
+  animation-range: entry 10% cover 20%;
+}
+#animation-text-r p {
+  animation-range: entry 5% cover 10%;
+}
+
+#animation-image-l {
+  animation: entry-animation linear both;
+  animation-timeline: view();
+}
+#animation-image-l {
+  animation-range: entry 10% cover 30%;
+}
+
+
+#animation-text-l h1,
+#animation-text-l p {
+  animation: entry-animation linear both;
+  animation-timeline: view();
+}
+#animation-text-l h1 {
+  animation-range: entry 10% cover 20%;
+}
+#animation-text-l p {
+  animation-range: entry 5% cover 10%;
+}
+
+#animation-image-r {
+  animation: cover-animation linear both;
+  animation-timeline: view();
+}
+#animation-image-r {
+  animation-range: entry 10% cover 30%;
 }
