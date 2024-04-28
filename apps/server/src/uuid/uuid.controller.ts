@@ -5,6 +5,6 @@ import { v4 as uuidv4 } from 'uuid';
 export class UuidController {
   @Get()
   getUuid() {
-    return { uuid: uuidv4() };
+    return { uuid: uuidv4().slice(0, 18) };
   }
 }
