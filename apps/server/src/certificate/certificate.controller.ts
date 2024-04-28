@@ -27,10 +27,7 @@ export class CertificateController {
 
     const { id } = schema.parse(body);
 
-    console.log({ id });
     const certificate = await this.certificateService.getCertificate({ id });
-
-    console.log({ certificate });
 
     if (!certificate) {
       return res.status(HttpStatus.BAD_REQUEST).send({

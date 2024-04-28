@@ -4,6 +4,9 @@ import { Download } from 'lucide-react';
 import { Certificate } from '@/types/certificate';
 import { CLIENT_URL, SERVER_URL } from '@/data/globalConfig';
 import { CopyButton } from '@/components/ui/CopyButton';
+import Link from '@/components/ui/link';
+import { deleteCertificateAction } from '@/actions/deleteCertificate';
+import { Button } from '@/components/ui/button';
 
 export const revalidate = 0;
 
@@ -25,14 +28,29 @@ const getCertificate = async ({ id }: { id: string }): Promise<Certificate> => {
   return data as Certificate;
 };
 
-export default async function CertificatesPage({ params }: { params: { id: string } }) {
+export default async function DeleteCertificate({ params }: { params: { id: string } }) {
   const certificate = await getCertificate({ id: params.id });
 
   return (
-    <div className="w-full flex flex-col items-start justify-start max-w-7xl px-6 gap-8 mt-10">
-      <h1 className="text-3xl font-bold text-primary-title">
+    <div className="w-full max-w-7xl px-6 my-10 flex flex-col gap-8">
+      <form action={deleteCertificateAction}>
+        <h1 className="text-3xl font-bold uppercase">Eliminar certificado</h1>
+        <p>
+          ¿Estás seguro que deseas eliminar el certificado?
+        </p>
+        <input type="hidden" name="id" value={certificate.id} />
+        <div className="flex gap-4 my-4">
+          <Button type="submit" size="sm">
+            Eliminar
+          </Button>
+          <Link href="/admin" className="h-full">
+            Cancelar
+          </Link>
+        </div>
+      </form>
+      <h2 className="text-3xl font-bold text-primary-title">
         {certificate.title}
-      </h1>
+      </h2>
       <div className="flex gap-8 w-full md:flex-row flex-col">
         <Image
           src={certificate.image}

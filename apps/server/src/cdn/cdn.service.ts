@@ -10,7 +10,6 @@ export class CdnService {
   constructor() {
     const accountName = process.env.CDN_ACCOUNT_NAME || '';
     const accountKey = process.env.CDN_ACCOUNT_KEY || '';
-    console.log({ accountName, accountKey });
     const sharedKeyCredential = new StorageSharedKeyCredential(accountName, accountKey);
     this.blobServiceClient = new BlobServiceClient(`https://${accountName}.blob.core.windows.net`, sharedKeyCredential);
   }
@@ -21,7 +20,7 @@ export class CdnService {
     const blobName = uuidv4();
 
     const blockBlobClient = containerClient.getBlockBlobClient(blobName);
-    console.log('testr');
+
     try {
       await blockBlobClient.uploadData(file.buffer, {
         blobHTTPHeaders: {

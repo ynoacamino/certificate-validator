@@ -6,7 +6,9 @@ import { UuidModule } from './uuid/uuid.module';
 import { CertificateModule } from './certificate/certificate.module';
 
 @Module({
-  imports: [ConfigModule.forRoot(), UuidModule, CertificateModule],
+  imports: [ConfigModule.forRoot({
+    envFilePath: '../../.env',
+  }), UuidModule, CertificateModule],
   controllers: [AppController],
   providers: [AppService],
 })

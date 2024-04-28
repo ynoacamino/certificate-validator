@@ -8,6 +8,8 @@ import ThemeProvider from '@/components/providers/ThemeProvider';
 import Header from '@/components/global/Header';
 import Footer from '@/components/global/Footer';
 import ProgressBarProvider from '@/components/providers/ProgressBarProvider';
+import AuthProvider from '@/components/providers/AuthProvider';
+import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
   title: 'IEEE UNSA | Student Chapter',
@@ -67,11 +69,14 @@ export default function RootLayout({
       >
         <ProgressBarProvider>
           <ThemeProvider>
-            <Header />
-            <main className="flex flex-col items-center w-full flex-1">
-              {children}
-            </main>
-            <Footer />
+            <AuthProvider>
+              <Header />
+              <main className="flex flex-col items-center w-full flex-1">
+                {children}
+              </main>
+              <Footer />
+              <Toaster />
+            </AuthProvider>
           </ThemeProvider>
         </ProgressBarProvider>
       </body>

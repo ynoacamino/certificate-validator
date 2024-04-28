@@ -1,6 +1,6 @@
 export const NAV_LINKS = [
   {
-    text: 'Inicio',
+    text: 'Verificar',
     href: '/',
   },
   {

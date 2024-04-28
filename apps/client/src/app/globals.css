@@ -243,3 +243,18 @@
 #animation-image-r {
   animation-range: entry 10% cover 30%;
 }
+
+
+input[type=file]::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background: var(--web-orange-500-dark);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  color: var(--primary-foreground);
+  cursor: pointer;
+}
+
+input[type=file]::file-selector-button:hover {
+  background: #fcac22;
+}

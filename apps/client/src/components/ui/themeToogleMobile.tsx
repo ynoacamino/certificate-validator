@@ -2,8 +2,8 @@
 
 import { useTheme } from 'next-themes';
 import { Sun, Moon, Monitor } from 'lucide-react';
-import { cn } from '@/lib/utils';
 import { useEffect, useState } from 'react';
+import { cn } from '@/lib/utils';
 import { Button } from './button';
 
 export default function ThemeToggleMobile() {
