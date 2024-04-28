@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { CdnService } from 'src/cdn/cdn.service';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { v4 as uuidv4 } from 'uuid';
 import { EditCertificate, NewCertificate } from './certificate.entity';
 
 @Injectable()
@@ -11,6 +10,14 @@ export class CertificateService {
     private readonly cdn: CdnService,
   ) {}
 
+  async getCertificates() {
+    return this.prisma.certificate.findMany({
+      orderBy: {
+        createdAt: 'desc',
+      },
+    });
+  }
+
   async getCertificate({ id }: { id: string }) {
     return this.prisma.findCertificate({ id });
   }
@@ -19,7 +26,7 @@ export class CertificateService {
     { data }: { data : NewCertificate },
   ) {
     try {
-      const newCertificate = { ...data, id: uuidv4() };
+      const newCertificate = data;
       const certificate = await this.prisma.createCertificate({ data: newCertificate });
 
       return certificate;

@@ -5,6 +5,7 @@ export type NewCertificate = {
   lastName: string;
   title: string;
   image: string;
+  id: string;
 };
 
 export type EditCertificate = {
@@ -19,6 +20,7 @@ export const certificateSchema = z.object({
   name: z.string(),
   lastName: z.string(),
   title: z.string(),
+  id: z.string(),
 });
 
 export const editCertificateSchema = z.object({
