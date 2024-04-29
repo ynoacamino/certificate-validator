@@ -20,7 +20,7 @@ export async function ListCertificates() {
       <h1 className="text-3xl font-bold text-primary-title">
         Lista de certificados
       </h1>
-      <div className="grid grid-cols-3 gap-10">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
         {
           certificates.map(({
             id, image, lastName, name, title,

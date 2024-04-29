@@ -64,7 +64,7 @@ export function AddCertificate() {
   };
 
   return (
-    <div className="w-full grid grid-cols-2 gap-8 ">
+    <div className="w-full grid lg:grid-cols-2 gap-8 ">
       <form className="flex flex-col w-full gap-4" onSubmit={handdleSubmit} ref={formRef}>
         <h1 className="text-3xl font-bold text-primary-title">
           Crear certificado
@@ -97,7 +97,7 @@ export function AddCertificate() {
       <img
         src={image ? URL.createObjectURL(image) : DEFAULT_IMAGE}
         alt="certificate"
-        className="w-full max-w-xl h-auto my-4 rounded-md border border-black"
+        className="w-full lg:max-w-xl h-auto my-4 rounded-md border border-black"
       />
     </div>
   );

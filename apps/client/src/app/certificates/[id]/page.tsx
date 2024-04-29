@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { LinkedInLogoIcon, TwitterLogoIcon, DiscordLogoIcon } from '@radix-ui/react-icons';
 import { Download } from 'lucide-react';
 import { Certificate } from '@/types/certificate';
-import { CLIENT_URL, SERVER_URL } from '@/data/globalConfig';
+import { SERVER_URL } from '@/data/globalConfig';
 import { CopyButton } from '@/components/ui/CopyButton';
 
 export const revalidate = 0;
@@ -60,7 +60,7 @@ export default async function CertificatesPage({ params }: { params: { id: strin
               value={`https://certificate-validator-sigma.vercel.app/certificates/${certificate.id}`}
               disabled
             />
-            <CopyButton value={`${CLIENT_URL}/certificates/${certificate.id}`} />
+            <CopyButton value={`https://certificate-validator-sigma.vercel.app/certificates/${certificate.id}`} />
           </div>
           <div className="w-full flex items-center justify-end my-6">
             <a
