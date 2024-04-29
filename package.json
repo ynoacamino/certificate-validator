@@ -11,6 +11,7 @@
     "turbo": "latest"
   },
   "packageManager": "pnpm@9.0.5",
+
   "engines": {
     "node": ">=18"
   }
