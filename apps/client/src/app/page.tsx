@@ -41,6 +41,7 @@ export default function Home() {
           name="uuid"
           id="uuid"
           required
+          autoComplete="off"
           placeholder="d4367598-82b3-4f95"
           className={cn('bg-accent rounded-lg p-2 text-2xl md:text-5xl w-full max-w-3xl text-center placeholder:text-primary/30 h-14 md:h-20 transition-all', errorStyle)}
         />

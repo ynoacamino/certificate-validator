@@ -1,11 +1,10 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { CLIENT_URL } from './data/globalConfig';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
-    origin: CLIENT_URL,
+    origin: 'https://certificate-validator-sigma.vercel.app/',
     methods: 'GET, POST, PUT, DELETE',
   });
 

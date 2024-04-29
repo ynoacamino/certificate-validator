@@ -57,7 +57,7 @@ export default async function CertificatesPage({ params }: { params: { id: strin
             <input
               type="text"
               className="bg-accent rounded-lg p-2 w-full max-w-3xl placeholder:text-primary/30"
-              value={`${CLIENT_URL}/certificates/${certificate.id}`}
+              value={`https://certificate-validator-sigma.vercel.app/certificates/${certificate.id}`}
               disabled
             />
             <CopyButton value={`${CLIENT_URL}/certificates/${certificate.id}`} />
