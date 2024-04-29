@@ -7,7 +7,7 @@ import { CertificateModule } from './certificate/certificate.module';
 
 @Module({
   imports: [ConfigModule.forRoot({
-    envFilePath: '../../.env',
+    envFilePath: '.env',
   }), UuidModule, CertificateModule],
   controllers: [AppController],
   providers: [AppService],

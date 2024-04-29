@@ -9,7 +9,7 @@ async function bootstrap() {
     methods: 'GET, POST, PUT, DELETE',
   });
 
-  const PORT = process.env.NEXT_PUBLIC_SERVER_PORT;
+  const { PORT } = process.env;
   await app.listen(Number(PORT) || 3001);
 }
 bootstrap();
