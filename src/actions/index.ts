@@ -11,7 +11,7 @@ export const searchUuid = async (prevState: { error: string }, formData: FormDat
   try {
     certificate = await pb.searchUUID({ uuid });
   } catch (e) {
-    return { error: 'Server error' };
+    return { error: 'Certificate not found' };
   }
 
   if (!certificate) {
