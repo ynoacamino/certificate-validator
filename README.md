@@ -17,7 +17,7 @@ Esta página fue desarrollada para ofrecer una herramienta de verificación de c
 
 ## 🌐 Demo
 
-Puedes probar la versión desplegada en el servidor [aquí](https://ieee-ynoacamino.vercel.app/).
+Puedes probar la versión desplegada en el servidor [aquí](https://certificates-validator.ynoacamino.site).
 
 ## 📚 Recursos que se utilizaron
 
@@ -35,7 +35,7 @@ El proyecto sigue una arquitectura modular organizada en carpetas que correspond
 
 ## 📷 Capturas de Pantalla
 
-![Página principal](https://ynoa-uploader.ynoacamino.site/uploads/1738041237_Pagina%20principal.webp)
+![Página principal](https://ynoa-uploader.ynoacamino.site/uploads/1738099968_New%20Project.gif)
 
 ## 🎯 Ventajas
 
@@ -50,7 +50,7 @@ El proyecto sigue una arquitectura modular organizada en carpetas que correspond
 1. Clona el repositorio a través de HTTPS
 
 ```bash
-git clone https://github.com/ynoacamino/ieee-ynoacamino.git
+git clone https://github.com/ynoacamino/certificate-validator.git
 ```
 
 2. Accede a la carpeta clonada
@@ -100,11 +100,3 @@ pnpm run start
 
 bun run start
 ```
-
-## 🤖 Contribuciones
-
-¡Las contribuciones son bienvenidas! Si encuentras algún problema o tienes sugerencias de mejora, no dudes en abrir un problema o enviar una solicitud de extracción.
-
----
-
-Este README refleja la estructura y funcionalidad del proyecto de verificación de certificados IEEE UNSA, utilizando las herramientas y tecnologías que se emplean en el código que me enviaste.
