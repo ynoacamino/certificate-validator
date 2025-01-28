@@ -2,20 +2,24 @@ import { BACKEND_URL } from '@/config/global';
 import { Certificate, Collections } from '@/types/certificate';
 import PocketBase from 'pocketbase';
 
-let client: PocketBase | null = null;
-
 export const pb = {
-  connect: () => {
-    if (!client) {
-      client = new PocketBase(BACKEND_URL);
-    }
-    return client;
-  },
   searchUUID: async ({ uuid } :{ uuid:string }) => {
-    const c = pb.connect();
+    console.log(BACKEND_URL)
+    const c = new PocketBase(BACKEND_URL);
 
-    const certificate = await c.collection(Collections.CERTIFICATES).getOne(uuid);
+    console.log('searchUUID', uuid);
 
-    return certificate as Certificate;
+    try {
+      const certificate = await c
+        .collection(Collections.CERTIFICATES)
+        .getOne(uuid, { requestKey: crypto.randomUUID() });
+  
+      console.log('certificate', certificate);
+  
+      return certificate as Certificate;
+    } catch (error) {
+      console.error('searchUUID', error);
+      return null;
+    }
   },
 };

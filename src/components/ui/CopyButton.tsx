@@ -1,6 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-
-'use client';
+ 
 
 import { Check, Copy } from 'lucide-react';
 import { useEffect, useState } from 'react';

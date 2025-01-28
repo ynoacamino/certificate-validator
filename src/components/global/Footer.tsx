@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import {Link} from 'react-router-dom';
 import { NAV_LINKS } from '@/data/navLinks';
 import IEEETitle from '../logos/IEEETitle';
 
@@ -15,7 +15,7 @@ export default function Footer() {
               NAV_LINKS.map((link) => (
                 <Link
                   key={link.href}
-                  href={link.href}
+                  to={link.href}
                   className="text-lg text-center w-full hover:underline"
                 >
                   {link.text}

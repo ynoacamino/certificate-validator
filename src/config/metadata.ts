@@ -1,6 +1,4 @@
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
+export const metadata = {
   title: 'IEEE UNSA | Certificate validator',
   description: 'Comprobador de certificados de la IEEE UNSA',
   authors: [{ name: 'Yenaro Joel Noa Camino', url: 'https://github.com/ynoacamino' }],
@@ -9,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'es_ES',
-    url: 'https://ieee-ynoacamino.vercel.app/',
+    url: 'https://ieee.ynoacamino.site',
     title: 'IEEE UNSA | Certificate validator',
     description: 'Comprobador de certificados de la IEEE UNSA',
     images: [

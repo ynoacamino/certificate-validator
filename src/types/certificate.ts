@@ -25,3 +25,16 @@ export interface Certificate extends RecordModel {
   [CollectionsFields.CREATED]: string;
   [CollectionsFields.UPDATED]: string;
 }
+
+export const certificateDefault: Certificate = {
+  [CollectionsFields.ID]: '',
+  [CollectionsFields.IMAGE]: '',
+  [CollectionsFields.NAME]: '',
+  [CollectionsFields.LASTNAME]: '',
+  [CollectionsFields.TITLE]: 'Cargando...',
+
+  [CollectionsFields.CREATED]: '',
+  [CollectionsFields.UPDATED]: '',
+  collectionId: '',
+  collectionName: '',
+};

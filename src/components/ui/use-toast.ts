@@ -1,9 +1,7 @@
-/* eslint-disable @typescript-eslint/no-shadow */
-/* eslint-disable consistent-return */
-/* eslint-disable default-case */
-/* eslint-disable @typescript-eslint/no-use-before-define */
-
-'use client';
+ 
+ 
+ 
+ 
 
 // Inspired by react-hot-toast library
 import * as React from 'react';

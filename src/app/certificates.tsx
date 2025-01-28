@@ -2,34 +2,53 @@ import { LinkedInLogoIcon, TwitterLogoIcon, DiscordLogoIcon } from '@radix-ui/re
 import { Download } from 'lucide-react';
 import { CopyButton } from '@/components/ui/CopyButton';
 import { pb } from '@/lib/pocketbase';
-import { CollectionsFields } from '@/types/certificate';
+import { Certificate, certificateDefault, CollectionsFields } from '@/types/certificate';
 import { getImageUrl } from '@/lib/utils';
+import { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 
-export const revalidate = 0;
+export default function CertificatesPage() {
+  const [certificate, setCertificate] = useState<Certificate>(certificateDefault);
 
-const getCertificate = async ({ id }: { id: string }) => pb.searchUUID({ uuid: id });
+  const params = useParams();
+  const navigate = useNavigate();
 
-export default async function CertificatesPage({ params }: { params: { id: string } }) {
-  const certificate = await getCertificate({ id: params.id });
+  useEffect(() => {
+    if (!params.id) return;
+
+    if (typeof params.id !== 'string') return;
+
+    if (certificate.id) return;
+
+    pb.searchUUID({ uuid: params.id })
+      .then((res) => {
+        if (res) {
+          setCertificate(res as Certificate);
+        }
+      })
+      .catch(() => {
+        navigate('/certificates/404');
+      });
+  }, [params.id, certificate.id, navigate]);
 
   return (
-    <div className="w-full flex flex-col items-start justify-start max-w-7xl px-6 gap-8 mt-10">
+    <div className="w-full flex flex-col items-start justify-start max-w-7xl px-6 gap-8 mt-10 ">
       <h1 className="text-3xl font-bold text-primary-title">
         {certificate[CollectionsFields.TITLE]}
       </h1>
       <div className="flex gap-8 w-full md:flex-row flex-col">
         <img
-          src={getImageUrl({
+          src={certificate[CollectionsFields.IMAGE] ? getImageUrl({
             collectionId: certificate.collectionId,
             id: certificate[CollectionsFields.ID],
             url: certificate[CollectionsFields.IMAGE],
-          })}
+          }) : 'https://ynoa-uploader.ynoacamino.site/uploads/1726012375_bg.webp'}
           width={1000}
           height={1000}
           alt={certificate[CollectionsFields.TITLE]}
-          className="rounded-lg w-full md:max-w-md lg:max-w-lg xl:max-w-2xl drop-shadow-lg border-border border"
+          className="rounded-lg flex-1 w-full md:max-w-md lg:max-w-lg xl:max-w-2xl drop-shadow-lg border-border border"
         />
-        <div className="w-full">
+        <div className="">
           <h1 className="font-bold text-2xl text-primary-title">
             Comparte tu certificado
           </h1>

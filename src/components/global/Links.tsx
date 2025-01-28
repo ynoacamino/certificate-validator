@@ -1,11 +1,10 @@
-'use client';
-
-import { usePathname } from 'next/navigation';
+import { useLocation } from 'react-router-dom'; 
 import Link from '@/components/ui/link';
 import { NAV_LINKS } from '@/data/navLinks';
 
 export default function Links() {
-  const path = usePathname();
+  const location = useLocation();
+  const path = location.pathname;
 
   return (
     <div className="md:flex gap-2 hidden font-semibold">

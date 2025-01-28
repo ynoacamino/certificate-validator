@@ -5,6 +5,6 @@ export const NAV_LINKS = [
   },
   {
     text: 'Pagina principal',
-    href: 'https://ieee-ynoacamino.vercel.app/',
+    href: 'https://ieee.ynoacamino.site',
   },
 ];
