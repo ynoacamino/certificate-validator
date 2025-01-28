@@ -50,6 +50,8 @@ export default function Home() {
       .then((res) => {
         if (res) {
           navigate(`/certificates/${res[CollectionsFields.ID]}`);
+        } else {
+          throw new Error('Certificado no encontrado');
         }
       })
       .catch(() => {
