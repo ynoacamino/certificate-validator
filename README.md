@@ -1,6 +1,3 @@
-<h1 align="center">
-Actualización: La aplicacino no se pudo implementar y solo que como un desarrollo.
-</h1>
 
 # ➕ ieee-certificate-validator 🚀
 
